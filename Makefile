@@ -10,7 +10,7 @@ LDFLAGS1 = $(LDFLAGS)  -lm
 srcdir	 =./
 builddir =build/
 
-TARGETS	 = stat
+TARGETS	 = stat pipe
 
 .PHONY: all
 all: $(TARGETS)
@@ -18,7 +18,8 @@ all: $(TARGETS)
 # use of stat
 stat: $(srcdir)stat.c
 	$(CC) $(CFLAGS) -o $@ $+ $(LDFLAGS)
-
+pipe: $(srcdir)pipe.c
+	$(CC) $(CFLAGS) -o $@ $+ $(LDFLAGS)
 .PHONY: clean
 clean:
 	@rm $(TARGETS) 2>/dev/null || true
